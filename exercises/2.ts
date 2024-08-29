@@ -78,8 +78,4 @@ type TokensInNetwork = {
 
 */
 
-type TokensInNetwork = {
-	[N in Network]: keyof {
-		[K in keyof AssetsConfig as AssetsConfig[K]["addresses"] extends { [i in N]: unknown } ? K : never]: unknown;
-	};
-};
+type TokensInNetwork = 

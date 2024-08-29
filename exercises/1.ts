@@ -1,10 +1,10 @@
-function selectArrIndex<T extends unknown[], K extends number>(arr: T, index: K): T[K] {
+function selectArrIndex(arr, index ) {
 	return arr[index];
 }
 
 selectArrIndex([1, 2, 3] as const, 1); // 2
 
-function tryTextToNumber<T extends string>(text: T): T extends `${number}` ? number : string;
+function tryTextToNumber(text: )
 function tryTextToNumber(text: string): number | string {
 	if (isNaN(Number(text))) {
 		return text;
@@ -15,7 +15,7 @@ function tryTextToNumber(text: string): number | string {
 tryTextToNumber("123"); // number
 tryTextToNumber("123abc"); // string
 
-type ResolveType<T> = T extends `${infer N extends number}` ? N : T extends `${infer N extends boolean}` ? N : T;
+type ResolveType<T> = ;
 
 function tryTextToLiteral<T extends string>(text: T): ResolveType<T>;
 function tryTextToLiteral(text: string): number | string | boolean {
@@ -33,11 +33,7 @@ tryTextToLiteral("true"); // true
 tryTextToLiteral("false"); // false
 tryTextToLiteral("123abc"); // '123abc'
 
-type RecurentResult<T extends string> = T extends `${infer First} ${infer Rest}`
-	? [ResolveType<First>, ...RecurentResult<Rest>]
-	: T extends `${infer Last}`
-		? [ResolveType<Last>]
-		: [];
+type RecurentResult<T extends string> = 
 
 function tryTextToNumberLiteralArray<T extends string>(text: T): RecurentResult<T>;
 function tryTextToNumberLiteralArray(text: string): (number | string)[] {
@@ -73,6 +69,7 @@ const countries = {
 		},
 	],
 } as const;
+type Countries = typeof countries;
 
 /*
 type Shorts = {
@@ -81,23 +78,16 @@ type Shorts = {
 }
 */
 
-type Shorts = {
-	[C in keyof typeof countries]: (typeof countries)[C][number]["short"];
-};
+type Shorts = 
 
-type Countries = typeof countries;
 
-type SuperCountries = {
-	[K in keyof Countries]: Countries[K][number] & { continent: K };
-}[keyof Countries];
+type  = 
 
-function getCountryFromShort<T extends string>(
-	short: T,
-): SuperCountries extends infer country ? (country extends { short: T } ? country : never) : never;
-function getCountryFromShort(short: string): SuperCountries {
+function getCountryFromShort<T extends string>(short: T): ;
+function getCountryFromShort(short: string):  {
 	return Object.values(countries).find((continent) =>
 		continent.find((country) => country.short === short),
-	) as unknown as SuperCountries;
+	) as unknown as ;
 }
 
 /*
