@@ -1,0 +1,47 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"correctness": {
+				"noUnusedVariables": "error",
+				"noUnusedImports": "error"
+			},
+			"complexity": {
+				"noUselessEmptyExport": "error",
+				"noUselessFragments": "error"
+			},
+			"style": {
+				"noParameterAssign": "error"
+			},
+			"suspicious": {
+				"noConsoleLog": "error"
+			},
+			"nursery": {
+				"useImportExtensions": {
+					"level": "error",
+					"fix": "safe"
+				}
+			}
+		}
+	},
+	"formatter": {
+		"lineWidth": 120,
+		"indentStyle": "tab"
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"defaultBranch": "main",
+		"useIgnoreFile": true
+	},
+	"json": {
+		"formatter": {
+			"enabled": true
+		}
+	}
+}

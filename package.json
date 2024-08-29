@@ -1,0 +1,17 @@
+{
+	"name": "typescriptWorkshop",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"lint": "biome check . && tsc",
+		"lint:fix": "biome check . --write"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@biomejs/biome": "1.8.3",
+		"typescript": "5.5.4"
+	}
+}
